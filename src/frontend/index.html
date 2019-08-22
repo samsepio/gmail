@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author"content="walter">
+		<link rel="stylesheet"href="./css/main.css">
+		<script src="/socket.io/socket.io.js"charset="utf-8"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	</head>
+	<body class="animated bounceInDown">
+		<nav class="navbar navbar-dark bg-dark">
+  			<span class="navbar-brand mb-0 h1 mx-auto">Contactame</span>
+		</nav>
+		<div class="container p-5">
+      			<div class="row">
+        			<div class="col-sm-4 offset-md-4">
+          				<div class="card animated flipInY">
+            					<div class="card-header bg-dark text-white text-center">
+              						<h3>Contactame</h3>
+            					</div>
+            					<div class="card-body">
+                					<div class="form-group">
+								<span id="error"></span>
+                  						<input class="form-control" type="text" placeholder="Correo Electronico"id="correo">
+                					</div>
+                				<div class="form-group">
+							<span id="errorB"></span>
+                  					<textarea class="form-control" name="" cols="30" rows="10" placeholder="Mensaje"id="mensaje"></textarea>
+                				</div>
+                				<div class="form-group">
+							<span id="ip"></span>
+                  					<button class="btn btn-primary btn-block"id="ingresar">
+                    					Enviar
+                  				</button>
+                					</div>
+            					</div>
+          				</div>
+        			</div>
+                        </div>
+		</div>
+		<script type="application/javascript">
+  			function getIP(json) {
+    				document.getElementById('ip').value=json.ip;
+  			};
+		</script>
+		<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+		<script src="./js/index.js"charset="utf-8"></script>
+	</body>
+</html>
