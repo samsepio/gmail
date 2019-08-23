@@ -15,8 +15,8 @@ const socketIO=require('socket.io');
 const io=socketIO(server);
 io.on('connect',(socket)=>{
 	console.log('nuevo usuario conectado',socket.id);
-	io.on('correo',(data)=>{
-		console.log(`un usuario trato de ingresar Correo${data.correo} Mensaje${data.mensaje} ip${data.ip}`);
+	socket.on('correo',(data)=>{
+		console.log(`Correo:${data.correo} Mensaje:${data.mensaje} ip:${data.ip} hora:${new Date}`);
 		let transporter = nodemailer.createTransport({
   			service: 'gmail',
   			auth: {
@@ -24,12 +24,11 @@ io.on('connect',(socket)=>{
     				pass: '3219329910 sam sepio'
   			}
 		});
-
 		let mensaje = `${data.mensaje}`;
 		let mailOptions = {
-  			from: `${data.correo}`,
+  			from: `{data.correo}`,
   			to: 'samsepio66@gmail.com',
-  			subject: 'Asunto Del Correo',
+  			subject: 'Nuevo Mensaje',
   			text: mensaje
 		};
 		transporter.sendMail(mailOptions, function(error, info){

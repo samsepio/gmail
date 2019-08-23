@@ -6,6 +6,7 @@ let ingresar=document.getElementById('ingresar');
 let error=document.getElementById('error');
 let errorB=document.getElementById('errorB');
 let ip=document.getElementById('ip');
+let enviado=document.getElementById('enviado');
 
 ingresar.addEventListener('click',(evento)=>{
 	const caracteres=(correo.value.length);
@@ -19,6 +20,9 @@ ingresar.addEventListener('click',(evento)=>{
 		errorB.style.color="red";
 		evento.preventDefault();
 	};
+	enviado.innerHTML+=`el mensaje se a enviado correctamente`
+	enviado.style.fontFamily='sans-serif';
+	enviado.style.color="green";
 	socket.emit('correo',{
 		correo: correo.value,
 		mensaje: mensaje.value,
