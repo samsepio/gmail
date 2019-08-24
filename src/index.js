@@ -5,7 +5,7 @@ const app=express();
 
 app.set('puerto','8000');
 
-app.use(express.static(path.join(__dirname,'frontend')));
+app.use(express.static(path.join(__dirname,'public')));
 
 const server=app.listen(app.get('puerto'),()=>{
 	console.log('servidor ejecutandose en el puerto',app.get('puerto'));
